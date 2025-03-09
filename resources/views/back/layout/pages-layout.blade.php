@@ -48,22 +48,10 @@
         @stack('stylesheets')
 
 	</head>
-	<body>
-		<div class="pre-loader">
-			<div class="pre-loader-box">
-				<div class="loader-logo">
-					<img src="/back/vendors/images/deskapp-logo.svg" alt="" />
-				</div>
-				<div class="loader-progress" id="progress_div">
-					<div class="bar" id="bar1"></div>
-				</div>
-				<div class="percent" id="percent1">0%</div>
-				<div class="loading-text">Loading...</div>
-			</div>
-		</div>
 
+    <body>
 		<div class="header">
-			<div class="header-left">
+			<d class="header-left">
 				<div class="menu-icon bi bi-list"></div>
 				<div
 					class="search-toggle-icon bi bi-search"
@@ -127,8 +115,7 @@
 						</div>
 					</form>
 				</div>
-			</div>
-			<div class="header-right">
+			</d			<div class="header-right">
 				<div class="dashboard-setting user-notification">
 					<div class="dropdown">
 						<a
@@ -244,9 +231,12 @@
 							<a class="dropdown-item" href="faq.html"
 								><i class="dw dw-help"></i> Help</a
 							>
-							<a class="dropdown-item" href="login.html"
+							<a class="dropdown-item" href="{{ route('adminlogout_handler') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
 								><i class="dw dw-logout"></i> Log Out</a
 							>
+                            <form action="{{ route('adminlogout_handler') }}" id="logout-form" method="POST" >
+                                @csrf
+                            </form>
 						</div>
 					</div>
 				</div>
@@ -709,14 +699,11 @@
                     </div>
 				</div>
 				<div class="footer-wrap pd-20 mb-20 card-box">
-					DeskApp - Bootstrap 4 Admin Template By
-					<a href="https://github.com/dropways" target="_blank"
-						>Ankit Hingarajiya</a
-					>
+					Math Dosman 2025
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- js -->
 		<script src="/back/vendors/scripts/core.js"></script>
 		<script src="/back/vendors/scripts/script.min.js"></script>
