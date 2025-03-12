@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +28,8 @@ Route::prefix('admin')->name('admin')->group(function(){
         Route::controller(AdminController::class)->group(function(){
             Route::get('dashboard','adminDashboard')->name('dashboard');
             Route::post('/logout','logoutHandler')->name('logout_handler');
+            Route::get('/profile','profileView')->name('profile');
+
         });
     });
 });

@@ -22,8 +22,8 @@
             overflow: hidden;
         }
         .header {
-            background-color: #007bff;
-            color: #ffffff;
+            background-color: #097c22;
+            color: #e6e6e6;
             padding: 30px;
             text-align: center;
         }

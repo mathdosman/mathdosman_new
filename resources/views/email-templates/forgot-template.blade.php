@@ -61,6 +61,9 @@
                 padding: 10px;
             }
         }
+        .warna{
+            color: #f87103
+        }
     </style>
 </head>
 <body>
@@ -74,6 +77,9 @@
             <div class="text-center">
                 <a href="{{$actionLink}}" terget="_blank" class="button">Reset Password</a>
             </div>
+            <p class="text-center warna">
+                This link is valid for 15 minutes.
+            </p>
             <p>If you did not request a password reset, please ignore this email or contact suport if you have questions.</p>
             <p>Thanks,</p>
             <p>Math Dosman Suport Team</p>
