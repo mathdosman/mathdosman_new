@@ -30,6 +30,7 @@ Route::prefix('admin')->name('admin')->group(function(){
             Route::post('/logout','logoutHandler')->name('logout_handler');
             Route::get('/profile','profileView')->name('profile');
             Route::post('/update-profile-picture','updateProfilePicture')->name('update_profile_picture');
+            Route::get('/settings','generalSettings')->name('settings');
 
         });
     });
