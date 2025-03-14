@@ -32,7 +32,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::KrJKCbe3EnCjBaJo',
+            '_route' => 'generated::FewkxHtxjrNobQBk',
           ),
           1 => NULL,
           2 => 
@@ -52,7 +52,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::mGclZx9Psfk4LlXt',
+            '_route' => 'generated::kvmeiDOaLtcJLZuA',
           ),
           1 => NULL,
           2 => 
@@ -91,7 +91,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::o4RRr5TjW6IcFnTD',
+            '_route' => 'generated::o99bsbxUgdhc8VUn',
           ),
           1 => NULL,
           2 => 
@@ -111,7 +111,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::laXh5kYjExPQBG4P',
+            '_route' => 'generated::dx9VLycnOUlJhv6B',
           ),
           1 => NULL,
           2 => 
@@ -131,7 +131,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::6y622hID2VEbvokm',
+            '_route' => 'generated::vooTAWM4jBYLj2ul',
           ),
           1 => NULL,
           2 => 
@@ -151,7 +151,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::B4KnvSNHvazG49Ny',
+            '_route' => 'generated::9wNyC8HzM87J9dyM',
           ),
           1 => NULL,
           2 => 
@@ -318,6 +318,25 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/update-profile-picture' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminupdate_profile_picture',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
@@ -440,7 +459,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::KrJKCbe3EnCjBaJo' => 
+    'generated::FewkxHtxjrNobQBk' => 
     array (
       'methods' => 
       array (
@@ -452,7 +471,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
-        'as' => 'generated::KrJKCbe3EnCjBaJo',
+        'as' => 'generated::FewkxHtxjrNobQBk',
       ),
       'fallback' => false,
       'defaults' => 
@@ -468,7 +487,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::mGclZx9Psfk4LlXt' => 
+    'generated::kvmeiDOaLtcJLZuA' => 
     array (
       'methods' => 
       array (
@@ -480,7 +499,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
-        'as' => 'generated::mGclZx9Psfk4LlXt',
+        'as' => 'generated::kvmeiDOaLtcJLZuA',
       ),
       'fallback' => false,
       'defaults' => 
@@ -551,7 +570,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::o4RRr5TjW6IcFnTD' => 
+    'generated::o99bsbxUgdhc8VUn' => 
     array (
       'methods' => 
       array (
@@ -579,8 +598,8 @@ app('router')->setCompiledRoutes(
                     return response(\\Illuminate\\Support\\Facades\\View::file(\'C:\\\\Users\\\\darmaputra\\\\Documents\\\\GitHub\\\\mathdosman_new\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
-                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"000000000000069d0000000000000000";}}',
-        'as' => 'generated::o4RRr5TjW6IcFnTD',
+                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000006b20000000000000000";}}',
+        'as' => 'generated::o99bsbxUgdhc8VUn',
       ),
       'fallback' => false,
       'defaults' => 
@@ -596,7 +615,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::laXh5kYjExPQBG4P' => 
+    'generated::dx9VLycnOUlJhv6B' => 
     array (
       'methods' => 
       array (
@@ -612,13 +631,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:44:"function () {
     return \\view(\'welcome\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006a10000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006b60000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::laXh5kYjExPQBG4P',
+        'as' => 'generated::dx9VLycnOUlJhv6B',
       ),
       'fallback' => false,
       'defaults' => 
@@ -634,7 +653,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::6y622hID2VEbvokm' => 
+    'generated::vooTAWM4jBYLj2ul' => 
     array (
       'methods' => 
       array (
@@ -655,7 +674,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::6y622hID2VEbvokm',
+        'as' => 'generated::vooTAWM4jBYLj2ul',
       ),
       'fallback' => false,
       'defaults' => 
@@ -679,7 +698,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::B4KnvSNHvazG49Ny' => 
+    'generated::9wNyC8HzM87J9dyM' => 
     array (
       'methods' => 
       array (
@@ -700,7 +719,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::B4KnvSNHvazG49Ny',
+        'as' => 'generated::9wNyC8HzM87J9dyM',
       ),
       'fallback' => false,
       'defaults' => 
@@ -738,6 +757,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'guest',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@loginForm',
         'controller' => 'App\\Http\\Controllers\\AuthController@loginForm',
@@ -775,6 +795,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'guest',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@loginHandler',
         'controller' => 'App\\Http\\Controllers\\AuthController@loginHandler',
@@ -813,6 +834,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'guest',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@forgotForm',
         'controller' => 'App\\Http\\Controllers\\AuthController@forgotForm',
@@ -850,6 +872,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'guest',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@sendPasswordResetLink',
         'controller' => 'App\\Http\\Controllers\\AuthController@sendPasswordResetLink',
@@ -888,6 +911,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'guest',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@resetForm',
         'controller' => 'App\\Http\\Controllers\\AuthController@resetForm',
@@ -925,6 +949,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'guest',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@resetPasswordHandler',
         'controller' => 'App\\Http\\Controllers\\AuthController@resetPasswordHandler',
@@ -963,6 +988,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AdminController@adminDashboard',
         'controller' => 'App\\Http\\Controllers\\AdminController@adminDashboard',
@@ -1000,6 +1026,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AdminController@logoutHandler',
         'controller' => 'App\\Http\\Controllers\\AdminController@logoutHandler',
@@ -1038,10 +1065,49 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'preventBackHistory',
         ),
         'uses' => 'App\\Http\\Controllers\\AdminController@profileView',
         'controller' => 'App\\Http\\Controllers\\AdminController@profileView',
         'as' => 'adminprofile',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminupdate_profile_picture' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/update-profile-picture',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'preventBackHistory',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminController@updateProfilePicture',
+        'controller' => 'App\\Http\\Controllers\\AdminController@updateProfilePicture',
+        'as' => 'adminupdate_profile_picture',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -1078,7 +1144,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000006a50000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000006ba0000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,

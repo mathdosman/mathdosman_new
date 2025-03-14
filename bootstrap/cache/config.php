@@ -769,6 +769,10 @@
     ),
     'compiled' => 'C:\\Users\\darmaputra\\Documents\\GitHub\\mathdosman_new\\storage\\framework\\views',
   ),
+  'image' => 
+  array (
+    'driver' => 'gd',
+  ),
   'livewire' => 
   array (
     'class_namespace' => 'App\\Livewire',

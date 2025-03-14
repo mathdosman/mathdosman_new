@@ -5,6 +5,7 @@
 		<!-- Basic Page Info -->
 		<meta charset="utf-8" />
 		<title>@yield('pageTitle')</title>
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<!-- Site favicon -->
 		<link
@@ -44,9 +45,9 @@
 			href="/back/vendors/styles/icon-font.min.css"
 		/>
 		<link rel="stylesheet" type="text/css" href="/back/vendors/styles/style.css" />
-		<link rel="stylesheet" href="/extra-assets/css/ijaboCropTool.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-
+        @kropifyStyles
         @stack('stylesheets')
 
 	</head>
@@ -501,9 +502,9 @@
 		<script src="/back/vendors/scripts/script.min.js"></script>
 		<script src="/back/vendors/scripts/process.js"></script>
 		<script src="/back/vendors/scripts/layout-settings.js"></script>
-		<script src="/extra-assets/js/ijaboCropTool.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        @kropifyScripts
         @stack('scripts')
 	</body>
 </html>
