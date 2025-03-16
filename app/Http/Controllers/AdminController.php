@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
 use SawaStacks\Utils\Kropify;
+use App\Models\GeneralSetting;
+
 
 class AdminController extends Controller
 {
@@ -60,4 +62,66 @@ class AdminController extends Controller
 
         return view('back.pages.general_settings', $data);
     }
+
+    public function updateLogo(Request $request)
+    {
+        $settings = GeneralSetting::take(1)->first();
+
+        if(!is_null($settings)){
+            $path = 'images/site/';
+            $old_logo = $settings->site_logo;
+            $file=$request->file('site_logo');
+            $filename = 'logo_'.uniqid().'.png';
+
+        // Validasi file
+            if($request->hasFile('site_logo')){
+                $upload = $file->move(public_path($path),$filename);
+
+                if($upload){
+                    if($old_logo != null && File::exists(public_path($path.$old_logo))){
+                        File::delete(public_path($path.$old_logo));
+                    }
+                    $settings->update(['site_logo'=>$filename]);
+                    return response()->json(['status'=>1,'image_path'=>$path.$filename,'message'=>'Site logo has been updated successfully.']);
+                }else{
+                    return response()->json(['status'=>0,'Something went wrong in uploading new logo.']);
+                }
+            }else {
+                return response()->json(['status' => 0, 'message' => 'No file uploaded.']);
+            }
+
+        }else{
+            return response()->json(['status'=>0,'message'=>'Make sure you updated general settings form list.'
+        ]);
+        }
+    }
+
+    public function uploadImage(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 2MB
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => $validator->errors()->first()]);
+        }
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = $image->move(public_path('images/site'), $filename); // Simpan di public/images/site
+
+            return response()->json(['success' => true, 'message' => 'Gambar berhasil diunggah.', 'path' => '/images/site/' . $filename]); // Sesuaikan path untuk frontend
+        }
+
+        return response()->json(['success' => false, 'message' => 'Gagal mengunggah gambar.']);
+    }
+
+    public function categoriesPage(Request $request){
+        $data = [
+            'pageTitle'=>'Manage categories'
+        ];
+        return view('back.pages.categories_page',$data);
+    }
+
 }

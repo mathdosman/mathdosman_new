@@ -31,7 +31,9 @@ Route::prefix('admin')->name('admin')->group(function(){
             Route::get('/profile','profileView')->name('profile');
             Route::post('/update-profile-picture','updateProfilePicture')->name('update_profile_picture');
             Route::get('/settings','generalSettings')->name('settings');
+            Route::post('/update-logo','updateLogo')->name('update_logo');
 
+            Route::get('/catagories','categoriesPage')->name('categories');
         });
     });
 });
