@@ -45,6 +45,11 @@
 			href="/back/vendors/styles/icon-font.min.css"
 		/>
 		<link rel="stylesheet" type="text/css" href="/back/vendors/styles/style.css" />
+
+        <link rel="stylesheet" href="/extra-assets/jquery-ui/jquery-ui.min.css" />
+		<link rel="stylesheet" href="/extra-assets/jquery-ui/jquery-ui.structure.min.css" />
+        <link rel="stylesheet" href="/extra-assets/jquery-ui/jquery-ui.theme.min.css">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.css">
         @kropifyStyles
@@ -62,7 +67,7 @@
 				></div>
 				<div class="header-search">
 					<form>
-						<div class="form-group mb-0">
+						<div class="mb-0 form-group">
 							<i class="dw dw-search2 search-icon"></i>
 							<input
 								type="text"
@@ -234,8 +239,8 @@
 			</div>
 			<div class="right-sidebar-body customscroll">
 				<div class="right-sidebar-body-content">
-					<h4 class="weight-600 font-18 pb-10">Header Background</h4>
-					<div class="sidebar-btn-group pb-30 mb-10">
+					<h4 class="pb-10 weight-600 font-18">Header Background</h4>
+					<div class="mb-10 sidebar-btn-group pb-30">
 						<a
 							href="javascript:void(0);"
 							class="btn btn-outline-primary header-white active"
@@ -248,8 +253,8 @@
 						>
 					</div>
 
-					<h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
-					<div class="sidebar-btn-group pb-30 mb-10">
+					<h4 class="pb-10 weight-600 font-18">Sidebar Background</h4>
+					<div class="mb-10 sidebar-btn-group pb-30">
 						<a
 							href="javascript:void(0);"
 							class="btn btn-outline-primary sidebar-light"
@@ -262,8 +267,8 @@
 						>
 					</div>
 
-					<h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
-					<div class="sidebar-radio-group pb-10 mb-10">
+					<h4 class="pb-10 weight-600 font-18">Menu Dropdown Icon</h4>
+					<div class="pb-10 mb-10 sidebar-radio-group">
 						<div class="custom-control custom-radio custom-control-inline">
 							<input
 								type="radio"
@@ -303,8 +308,8 @@
 						</div>
 					</div>
 
-					<h4 class="weight-600 font-18 pb-10">Menu List Icon</h4>
-					<div class="sidebar-radio-group pb-30 mb-10">
+					<h4 class="pb-10 weight-600 font-18">Menu List Icon</h4>
+					<div class="mb-10 sidebar-radio-group pb-30">
 						<div class="custom-control custom-radio custom-control-inline">
 							<input
 								type="radio"
@@ -381,7 +386,7 @@
 						</div>
 					</div>
 
-					<div class="reset-options pt-30 text-center">
+					<div class="text-center reset-options pt-30">
 						<button class="btn btn-danger" id="reset-settings">
 							Reset Settings
 						</button>
@@ -408,17 +413,19 @@
 				<div class="sidebar-menu">
 					<ul id="accordion-menu">
 						<li>
-							<a href="{{ route('admindashboard') }}" class="dropdown-toggle no-arrow">
+							<a href="{{ route('admindashboard') }}" class="dropdown-toggle no-arrow {{ Route::is('admindashboard') ? 'active' : '' }}">
 								<span class="micon fa fa-home"></span
 								><span class="mtext">Home</span>
 							</a>
 						</li>
+                        @if (auth()->user()->type == 'superAdmin')
 						<li>
-							<a href="{{ route('admincategories') }}" class="dropdown-toggle no-arrow">
-								<span class="micon fa fa-th-list"></span
-								><span class="mtext">Categories</span>
-							</a>
-						</li>
+                            <a href="{{ route('admincategories') }}" class="dropdown-toggle no-arrow {{ Route::is('admincategories') ? 'active' : '' }}">
+                                <span class="micon fa fa-th-list"></span
+                                    ><span class="mtext">Categories</span>
+                                </a>
+                        </li>
+                        @endif
 
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle">
@@ -430,6 +437,7 @@
 								<li><a href="">Posts</a></li>
 							</ul>
 						</li>
+                        @if (auth()->user()->type == 'superAdmin')
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle">
 								<span class="micon fa fa-shopping-bag"></span
@@ -440,7 +448,7 @@
 								<li><a href="">All Products</a></li>
 							</ul>
 						</li>
-
+                        @endif
 						<li>
 							<a href="invoice.html" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-receipt-cutoff"></span
@@ -457,7 +465,7 @@
 						<li>
 							<a
 								href="{{ route('adminprofile') }}"
-								class="dropdown-toggle no-arrow"
+								class="dropdown-toggle no-arrow {{ Route::is('adminprofile') ? 'active' : '' }}"
 							>
 								<span class="micon fa fa-user-circle"></span>
 								<span class="mtext"
@@ -465,11 +473,11 @@
 									</span>
 							</a>
 						</li>
-
+                        @if (auth()->user()->type == 'superAdmin')
 						<li>
 							<a
 								href="{{ route('adminsettings') }}"
-								class="dropdown-toggle no-arrow"
+								class="dropdown-toggle no-arrow {{ Route::is('adminsettings') ? 'active' : '' }}"
 							>
 								<span class="micon fa fa-cogs"></span>
 								<span class="mtext"
@@ -477,6 +485,7 @@
 									</span>
 							</a>
 						</li>
+                        @endif
 					</ul>
 				</div>
 			</div>
@@ -491,7 +500,7 @@
                         @yield('content')
                     </div>
 				</div>
-				<div class="footer-wrap pd-20 mb-20 card-box">
+				<div class="mb-20 footer-wrap pd-20 card-box">
 					Math Dosman 2025
 				</div>
 			</div>
@@ -503,7 +512,19 @@
 		<script src="/back/vendors/scripts/process.js"></script>
 		<script src="/back/vendors/scripts/layout-settings.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
+        <script>
+            @if(Session::has('success'))
+                toastr.success('{{ Session::get('success') }}');
+            @elseif(Session::has('fail'))
+                toastr.error('{{ Session::get('fail') }}');
+            @endif
+        </script>
+
+        <script src="/extra-assets/jquery-ui/jquery-ui.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         @kropifyScripts
         @stack('scripts')
 	</body>

@@ -2,90 +2,94 @@
 @section('pageTitle', isset($pageTitle)? $pageTitle : "Page Title Here")
 @section('content')
 
-    <div class="row">
-        <div class="col-12">
-            <div class="pd-20 card-box mb-30">
-                <div class="clearfix">
-                    <div class="pull-left">
-                        <h4 class="h4 text-blue">Parent categories</h4>
-                    </div>
-                    <div class="pull-right">
-                        <a href="" class="btn btn-primary btn-sm">Add P. category</a>
-                    </div>
-                </div>
-                <div class="table-responsive mt-4">
-                    <table class="table table-borderless table-striped table-sm">
-                        <thead class="bg-secondary text-white">
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>N of categories</th>
-                            <th>Action</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>p.  Cat 1</td>
-                                <td>4</td>
-                                <td>
-                                    <div class="table-actions">
-                                        <a href="" class="text-primary mx-2">
-                                            <i class="icon-copy dw dw-edit2" ></i>
-                                        </a>
-                                        <a href="" class="text-danger mx-2">
-                                            <i class="icon-copy dw dw-delete-3"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- 2 --}}
-    <div class="row">
-        <div class="col-12">
-            <div class="pd-20 card-box mb-30">
-                <div class="clearfix">
-                    <div class="pull-left">
-                        <h4 class="h4 text-blue">Categories</h4>
-                    </div>
-                    <div class="pull-right">
-                        <a href="" class="btn btn-primary btn-sm">Add Category</a>
-                    </div>
-                </div>
-                <div class="table-responsive mt-4">
-                    <table class="table table-borderless table-striped table-sm">
-                        <thead class="bg-secondary text-white">
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Parent category</th>
-                            <th>N of posts</th>
-                            <th>Action</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>p.  Cat 1</td>
-                                <td>Any</td>
-                                <td>4</td>
-                                <td>
-                                    <div class="table-actions">
-                                        <a href="" class="text-primary mx-2">
-                                            <i class="icon-copy dw dw-edit2" ></i>
-                                        </a>
-                                        <a href="" class="text-danger mx-2">
-                                            <i class="icon-copy dw dw-delete-3"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+@livewire('admin.categories')
 
 @endsection
+
+@push('scripts')
+    <script>
+        window.addEventListener('showParentCategoryModalForm',function(){
+            $('#pcategory_modal').modal('show');
+        });
+        window.addEventListener('hideParentCategoryModalForm',function(){
+            $('#pcategory_modal').modal('hide');
+        });
+        window.addEventListener('showCategoryModalForm',function(){
+            $('#category_modal').modal('show');
+        });
+        window.addEventListener('hideCategoryModalForm',function(){
+            $('#category_modal').modal('hide');
+        });
+
+        $('table tbody#sortable_parent_categories').sortable({
+            cursor:"move",
+            update:function(event, ui){
+                $(this).children().each(function(index){
+                   if($(this).attr('data-ordering') != (index + 1)){
+                    $(this).attr('data-ordering',(index+1)).addClass('updated');
+                   }
+                });
+                var positions = [];
+                $('.updated').each(function(){
+                    positions.push([$(this).attr('data-index'),$(this).attr('data-ordering')]);
+                    $(this).removeClass('updated');
+                });
+
+                Livewire.dispatch('updateParentCategoryOrdering',[positions]);
+            }
+        });
+
+        $('table tbody#sortable_categories').sortable({
+            cursor:"move",
+            update:function(event, ui){
+                $(this).children().each(function(index){
+                   if($(this).attr('data-ordering') != (index + 1)){
+                    $(this).attr('data-ordering',(index+1)).addClass('updated');
+                   }
+                });
+                var positions = [];
+                $('.updated').each(function(){
+                    positions.push([$(this).attr('data-index'),$(this).attr('data-ordering')]);
+                    $(this).removeClass('updated');
+                });
+
+                Livewire.dispatch('updateCategoryOrdering',[positions]);
+            }
+        });
+
+
+        window.addEventListener('deleteParentCategory',function(event){
+            var id = event.detail[0].id;
+            Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this parent category",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('deleteParentCategoryAction', [id]);
+                }
+            });
+        });
+
+        window.addEventListener('deleteCategory',function(event){
+            var id = event.detail[0].id;
+            Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this category",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('deleteCategoryAction', [id]);
+                }
+            });
+        });
+    </script>
+@endpush

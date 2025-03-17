@@ -63,4 +63,8 @@ class User extends Authenticatable
     public function sosial_links(){
         return $this->belongsTo(UserSosialLink::class,'id','user_id');
     }
+
+    public function getTypeAttribute($value){
+        return $value;
+    }
 }
