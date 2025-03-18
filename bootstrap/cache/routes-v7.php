@@ -7,6 +7,131 @@ app('router')->setCompiledRoutes(
     0 => false,
     1 => 
     array (
+      '/elfinder' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'elfinder.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/elfinder/connector' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'elfinder.connector',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+            'POST' => 2,
+            'PUT' => 3,
+            'PATCH' => 4,
+            'DELETE' => 5,
+            'OPTIONS' => 6,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/elfinder/tinymce' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'elfinder.tinymce',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/elfinder/tinymce4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'elfinder.tinymce4',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/elfinder/tinymce5' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'elfinder.tinymce5',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/elfinder/ckeditor' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'elfinder.ckeditor',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/livewire/update' => 
       array (
         0 => 
@@ -32,7 +157,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Arniz87HvOE6D55N',
+            '_route' => 'generated::bGF8qhgTEa6mIJlR',
           ),
           1 => NULL,
           2 => 
@@ -52,7 +177,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::lkOzs2CucDaOAVpQ',
+            '_route' => 'generated::cJqcqxzxtisSWdd2',
           ),
           1 => NULL,
           2 => 
@@ -91,7 +216,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::YI8dQRSJ4nWShqeK',
+            '_route' => 'generated::ztUUV00q7EjCLMKi',
           ),
           1 => NULL,
           2 => 
@@ -111,7 +236,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::OU89aOkR87iHmcs7',
+            '_route' => 'generated::9xT8I34kv3HO2Yrp',
           ),
           1 => NULL,
           2 => 
@@ -131,7 +256,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::6tRMfRII6EkLoFLM',
+            '_route' => 'generated::EhOHllNskaBcpXJl',
           ),
           1 => NULL,
           2 => 
@@ -151,7 +276,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::j3DVH0rYYrUtaUH1',
+            '_route' => 'generated::0FBLmuwwbuu01GhQ',
           ),
           1 => NULL,
           2 => 
@@ -396,14 +521,118 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/post/new' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminadd_post',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/post/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admincreate_post',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/posts' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminposts',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/livewire/preview\\-file/([^/]++)(*:39)|/admin/password/reset/([^/]++)(*:76)|/storage/(.*)(*:96))/?$}sDu',
+      0 => '{^(?|/elfinder/(?|popup/([^/]++)(*:34)|filepicker/([^/]++)(*:60))|/livewire/preview\\-file/([^/]++)(*:100)|/admin/password/reset/([^/]++)(*:138)|/storage/(.*)(*:159))/?$}sDu',
     ),
     3 => 
     array (
-      39 => 
+      34 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'elfinder.popup',
+          ),
+          1 => 
+          array (
+            0 => 'input_id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      60 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'elfinder.filepicker',
+          ),
+          1 => 
+          array (
+            0 => 'input_id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      100 => 
       array (
         0 => 
         array (
@@ -426,7 +655,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      76 => 
+      138 => 
       array (
         0 => 
         array (
@@ -449,7 +678,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      96 => 
+      159 => 
       array (
         0 => 
         array (
@@ -487,6 +716,315 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
+    'elfinder.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'elfinder',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'elfinder.index',
+        'uses' => 'Barryvdh\\Elfinder\\ElfinderController@showIndex',
+        'controller' => 'Barryvdh\\Elfinder\\ElfinderController@showIndex',
+        'namespace' => 'Barryvdh\\Elfinder',
+        'prefix' => 'elfinder',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'elfinder.connector' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+        2 => 'POST',
+        3 => 'PUT',
+        4 => 'PATCH',
+        5 => 'DELETE',
+        6 => 'OPTIONS',
+      ),
+      'uri' => 'elfinder/connector',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'elfinder.connector',
+        'uses' => 'Barryvdh\\Elfinder\\ElfinderController@showConnector',
+        'controller' => 'Barryvdh\\Elfinder\\ElfinderController@showConnector',
+        'namespace' => 'Barryvdh\\Elfinder',
+        'prefix' => 'elfinder',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'elfinder.popup' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'elfinder/popup/{input_id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'elfinder.popup',
+        'uses' => 'Barryvdh\\Elfinder\\ElfinderController@showPopup',
+        'controller' => 'Barryvdh\\Elfinder\\ElfinderController@showPopup',
+        'namespace' => 'Barryvdh\\Elfinder',
+        'prefix' => 'elfinder',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'elfinder.filepicker' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'elfinder/filepicker/{input_id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'elfinder.filepicker',
+        'uses' => 'Barryvdh\\Elfinder\\ElfinderController@showFilePicker',
+        'controller' => 'Barryvdh\\Elfinder\\ElfinderController@showFilePicker',
+        'namespace' => 'Barryvdh\\Elfinder',
+        'prefix' => 'elfinder',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'elfinder.tinymce' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'elfinder/tinymce',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'elfinder.tinymce',
+        'uses' => 'Barryvdh\\Elfinder\\ElfinderController@showTinyMCE',
+        'controller' => 'Barryvdh\\Elfinder\\ElfinderController@showTinyMCE',
+        'namespace' => 'Barryvdh\\Elfinder',
+        'prefix' => 'elfinder',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'elfinder.tinymce4' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'elfinder/tinymce4',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'elfinder.tinymce4',
+        'uses' => 'Barryvdh\\Elfinder\\ElfinderController@showTinyMCE4',
+        'controller' => 'Barryvdh\\Elfinder\\ElfinderController@showTinyMCE4',
+        'namespace' => 'Barryvdh\\Elfinder',
+        'prefix' => 'elfinder',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'elfinder.tinymce5' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'elfinder/tinymce5',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'elfinder.tinymce5',
+        'uses' => 'Barryvdh\\Elfinder\\ElfinderController@showTinyMCE5',
+        'controller' => 'Barryvdh\\Elfinder\\ElfinderController@showTinyMCE5',
+        'namespace' => 'Barryvdh\\Elfinder',
+        'prefix' => 'elfinder',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'elfinder.ckeditor' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'elfinder/ckeditor',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'elfinder.ckeditor',
+        'uses' => 'Barryvdh\\Elfinder\\ElfinderController@showCKeditor4',
+        'controller' => 'Barryvdh\\Elfinder\\ElfinderController@showCKeditor4',
+        'namespace' => 'Barryvdh\\Elfinder',
+        'prefix' => 'elfinder',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'livewire.update' => 
     array (
       'methods' => 
@@ -518,7 +1056,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Arniz87HvOE6D55N' => 
+    'generated::bGF8qhgTEa6mIJlR' => 
     array (
       'methods' => 
       array (
@@ -530,7 +1068,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
-        'as' => 'generated::Arniz87HvOE6D55N',
+        'as' => 'generated::bGF8qhgTEa6mIJlR',
       ),
       'fallback' => false,
       'defaults' => 
@@ -546,7 +1084,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::lkOzs2CucDaOAVpQ' => 
+    'generated::cJqcqxzxtisSWdd2' => 
     array (
       'methods' => 
       array (
@@ -558,7 +1096,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
-        'as' => 'generated::lkOzs2CucDaOAVpQ',
+        'as' => 'generated::cJqcqxzxtisSWdd2',
       ),
       'fallback' => false,
       'defaults' => 
@@ -629,7 +1167,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::YI8dQRSJ4nWShqeK' => 
+    'generated::ztUUV00q7EjCLMKi' => 
     array (
       'methods' => 
       array (
@@ -657,8 +1195,8 @@ app('router')->setCompiledRoutes(
                     return response(\\Illuminate\\Support\\Facades\\View::file(\'C:\\\\Users\\\\darmaputra\\\\Documents\\\\GitHub\\\\mathdosman_new\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
-                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000006b80000000000000000";}}',
-        'as' => 'generated::YI8dQRSJ4nWShqeK',
+                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000006d30000000000000000";}}',
+        'as' => 'generated::ztUUV00q7EjCLMKi',
       ),
       'fallback' => false,
       'defaults' => 
@@ -674,7 +1212,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::OU89aOkR87iHmcs7' => 
+    'generated::9xT8I34kv3HO2Yrp' => 
     array (
       'methods' => 
       array (
@@ -690,13 +1228,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:44:"function () {
     return \\view(\'welcome\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006bc0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006d70000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::OU89aOkR87iHmcs7',
+        'as' => 'generated::9xT8I34kv3HO2Yrp',
       ),
       'fallback' => false,
       'defaults' => 
@@ -712,7 +1250,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::6tRMfRII6EkLoFLM' => 
+    'generated::EhOHllNskaBcpXJl' => 
     array (
       'methods' => 
       array (
@@ -733,7 +1271,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::6tRMfRII6EkLoFLM',
+        'as' => 'generated::EhOHllNskaBcpXJl',
       ),
       'fallback' => false,
       'defaults' => 
@@ -757,7 +1295,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::j3DVH0rYYrUtaUH1' => 
+    'generated::0FBLmuwwbuu01GhQ' => 
     array (
       'methods' => 
       array (
@@ -778,7 +1316,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::j3DVH0rYYrUtaUH1',
+        'as' => 'generated::0FBLmuwwbuu01GhQ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1306,6 +1844,121 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'adminadd_post' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/post/new',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'preventBackHistory',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PostController@addPost',
+        'controller' => 'App\\Http\\Controllers\\PostController@addPost',
+        'as' => 'adminadd_post',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admincreate_post' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/post/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'preventBackHistory',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PostController@createPost',
+        'controller' => 'App\\Http\\Controllers\\PostController@createPost',
+        'as' => 'admincreate_post',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminposts' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/posts',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'preventBackHistory',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PostController@allPost',
+        'controller' => 'App\\Http\\Controllers\\PostController@allPost',
+        'as' => 'adminposts',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'storage.local' => 
     array (
       'methods' => 
@@ -1322,7 +1975,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000006c00000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000006db0000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,

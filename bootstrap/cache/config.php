@@ -323,6 +323,33 @@
       ),
     ),
   ),
+  'elfinder' => 
+  array (
+    'dir' => 
+    array (
+      0 => 'ufiles',
+    ),
+    'disks' => 
+    array (
+    ),
+    'route' => 
+    array (
+      'prefix' => 'elfinder',
+      'middleware' => 
+      array (
+        0 => 'web',
+        1 => 'auth',
+      ),
+    ),
+    'access' => 'Barryvdh\\Elfinder\\Elfinder::checkAccess',
+    'roots' => NULL,
+    'options' => 
+    array (
+    ),
+    'root_options' => 
+    array (
+    ),
+  ),
   'filesystems' => 
   array (
     'default' => 'local',

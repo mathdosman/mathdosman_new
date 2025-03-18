@@ -1,4 +1,11 @@
 <?php return array (
+  'barryvdh/laravel-elfinder' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Barryvdh\\Elfinder\\ElfinderServiceProvider',
+    ),
+  ),
   'cviebrock/eloquent-sluggable' => 
   array (
     'providers' => 

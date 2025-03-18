@@ -428,13 +428,13 @@
                         @endif
 
 						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
+							<a href="javascript:;" class="dropdown-toggle {{ Route::is('adminadd_post') ? 'active' : '' }} || {{ Route::is('adminposts') ? 'active' : '' }}">
 								<span class="micon fa fa-newspaper-o"></span
 								><span class="mtext"> Posts </span>
 							</a>
 							<ul class="submenu">
-								<li><a href="">New</a></li>
-								<li><a href="">Posts</a></li>
+								<li><a href="{{ route('adminadd_post') }}" class="{{ Route::is('adminadd_post') ? 'active' : '' }}">New</a></li>
+								<li><a href="{{ route('adminposts') }}" class="{{ Route::is('adminposts') ? 'active' : '' }}">Posts</a></li>
 							</ul>
 						</li>
                         @if (auth()->user()->type == 'superAdmin')
