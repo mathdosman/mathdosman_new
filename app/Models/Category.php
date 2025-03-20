@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Post;
+use App\Models\ParentCategory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -20,7 +22,11 @@ class Category extends Model
     }
 
     public function parent_category(){
-        return $this->hasOne(ParentCategory::class,'id','parent');
+        // return $this->hasOne(ParentCategory::class,'id','parent');
         return $this->belongsTo(ParentCategory::class,'parent','id');
+    }
+
+    public function posts(){
+        return $this->hasMany(Post::class,'category','id');
     }
 }
