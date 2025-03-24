@@ -1,5 +1,4 @@
 <div>
-
     <div class="tab">
         <ul class="nav nav-tabs customtab" role="tablist">
             <li class="nav-item">
@@ -56,7 +55,7 @@
                             <label for=""><b>Site Meta Description</b> <small>(optional)</small></label>
                             <textarea wire:model="site_meta_description" class="form-control" cols="4" rows="4" placeholder="Type site meta description..."></textarea>
                             @error('site_meta_description')
-                            <span class="text-danger ml-1">{{ $message }}</span>
+                                <span class="text-danger ml-1">{{ $message }}</span>
                             @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -69,42 +68,67 @@
                         <div class="col-md-6">
                             <h6>Site Logo</h6>
                             <div class="mb-2 mt-1" style="max-width: 200px">
-                                <img wire:ignore src="" alt="" class="img-thumbnail" data-ijabo-default-img="/back/site/{{ isset(settings()->site_logo) ? settings()->site_logo : '' }}" id="preview_site_logo">
+                                <img alt="Site Logo" src="{{ asset('images/site/' . (settings()->site_logo ?? 'default.png')) }}" class="img-thumbnail" id="preview_site_logo">
                             </div>
                             <form action="{{ route('adminupdate_logo') }}" method="POST" enctype="multipart/form-data" id="updateLogoForm">
-                            @csrf
-                            <div class="mb-2">
-                                <input type="file" id="site_logo" name="site_logo" id="" class="form-control">
-                                <span class="text-danger ml-1"></span>
-                            </div>
-                            <button class="btn btn-primary"> Change Logo</button>
-                            </form>
-                        </div>
-
-
-                        {{-- <div class="col-md-6">
-                            <h6>Unggah Gambar</h6>
-                            <div class="mb-2 mt-1" style="max-width: 200px">
-                                <img id="preview_image" src="#" alt="Pratinjau Gambar" style="display: none; max-width: 100%;" class="img-thumbnail">
-                            </div>
-                            <form action="{{ route('adminupdate_logo') }}" method="POST" enctype="multipart/form-data" id="uploadImageForm">
                                 @csrf
                                 <div class="mb-2">
-                                    <input type="file" id="image_upload" name="image" class="form-control">
-                                    <span class="text-danger ml-1" id="image_error"></span>
+                                    <input type="file" id="site_logo" name="site_logo" class="form-control">
+                                    <span class="text-danger ml-1"></span>
                                 </div>
-                                <button type="submit" class="btn btn-primary">UChange Logo</button>
+                                <button class="btn btn-primary">Change Logo</button>
                             </form>
-                        </div> --}}
-
-
-
-
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Site Favicon</h6>
+                            <div class="mb-2 mt-1" style="max-width: 200px">
+                                <img alt="Site Favicon" src="{{ asset('images/site/' . (settings()->site_favicon ?? 'default_favicon.png')) }}" class="img-thumbnail" id="preview_site_favicon">
+                            </div>
+                            <form action="{{ route('adminupdate_favicon') }}" method="POST" enctype="multipart/form-data" id="updateFaviconForm">
+                                @csrf
+                                <div class="mb-2">
+                                    <input type="file" id="site_favicon" name="site_favicon" class="form-control">
+                                    <span class="text-danger ml-1"></span>
+                                </div>
+                                <button class="btn btn-primary">Change Favicon</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 </div>
+
+<script>
+    function previewImage(inputId, previewId) {
+        document.getElementById(inputId).addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var imageType = /^image\//;
+
+            if (!imageType.test(file.type)) {
+                alert("Hanya file gambar yang diizinkan!");
+                event.target.value = "";
+                document.getElementById(previewId).src = "";
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById(previewId);
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    previewImage('site_logo', 'preview_site_logo');
+    previewImage('site_favicon', 'preview_site_favicon');
+</script>
+<script>
+    @if(session('success'))
+        toastr.success('{{ session('success') }}');
+    @elseif(session('error'))
+        toastr.error('{{ session('error') }}');
+    @endif
+</script>

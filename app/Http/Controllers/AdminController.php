@@ -96,6 +96,39 @@ class AdminController extends Controller
         }
     }
 
+    public function updateFavicon(Request $request)
+    {
+        $settings = GeneralSetting::take(1)->first();
+
+        if (!is_null($settings)) {
+            $path = 'images/site/';
+            $old_favicon = $settings->site_favicon;
+            $file = $request->file('site_favicon');
+
+            // Validasi file
+            if ($request->hasFile('site_favicon')) {
+                $filename = 'favicon_' . uniqid() . '.' . $file->getClientOriginalExtension(); // Menggunakan ekstensi asli
+
+                $upload = $file->move(public_path($path), $filename);
+
+                if ($upload) {
+                    if ($old_favicon != null && File::exists(public_path($path . $old_favicon))) {
+                        File::delete(public_path($path . $old_favicon));
+                    }
+                    $settings->update(['site_favicon' => $filename]);
+
+                    return redirect()->back()->with('success', 'Site favicon has been updated successfully.'); // Menggunakan session flash
+                } else {
+                    return redirect()->back()->with('error', 'Something went wrong in uploading new favicon.'); // Menggunakan session flash
+                }
+            } else {
+                return redirect()->back()->with('error', 'No file uploaded.'); // Menggunakan session flash
+            }
+        } else {
+            return redirect()->back()->with('error', 'Make sure you updated general settings form list.'); // Menggunakan session flash
+        }
+    }
+
     public function uploadImage(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -123,5 +156,6 @@ class AdminController extends Controller
         ];
         return view('back.pages.categories_page',$data);
     }
+
 
 }

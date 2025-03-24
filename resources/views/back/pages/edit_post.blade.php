@@ -156,8 +156,11 @@
                     },
                     success: function(data) {
                         if (data.status == 1) {
-                            $(form)[0].reset();
                             toastr.success(data.message);
+                            // Tambahkan jeda sebelum redirect
+                                setTimeout(function() {
+                                    window.location.href = "{{ route('adminposts') }}";
+                                }, 1500); // Jeda 2 detik
                         } else if (data.status == 0) {
                             //tampilkan pesan error dari server
                             toastr.error(data.message);

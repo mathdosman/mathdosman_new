@@ -131,8 +131,8 @@
         $(document).ready(function() {
             // Konfigurasi Toastr
             toastr.options = {
-                "timeOut": "5000",
-                "positionClass": "toast-top-right"
+                "timeOut": "3000",
+                "positionClass": "toast-top-center"
             };
 
             $('#addPostForm').on('submit', function(e) {

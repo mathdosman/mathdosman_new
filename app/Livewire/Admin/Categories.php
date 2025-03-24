@@ -50,9 +50,9 @@ class Categories extends Component
 
         if($saved){
             $this->hideParentCategoryModalForm();
-            Session::flash('success','New parent category has been successfully.');
+            $this->dispatch('postDeleted', ['message' => 'New parent category has been successfully.', 'status' => 'success']);
         }else{
-            Session::flash('fail','Something went wrong');
+            $this->dispatch('postDeleted', ['message' => 'Something went wrong', 'status' => 'error']);
         }
     }
 
@@ -81,9 +81,9 @@ class Categories extends Component
 
         if($updated){
             $this->hideParentCategoryModalForm();
-            Session::flash('success','Parent category has been updated successfully.');
+            $this->dispatch('postDeleted', ['message' => 'Parent category has been updated successfully.', 'status' => 'success']);
         }else{
-            Session::flash('fail','Something went wrong');
+            $this->dispatch('postDeleted', ['message' => 'Something went wrong', 'status' => 'error']);
         }
     }
 
@@ -95,7 +95,8 @@ class Categories extends Component
             ParentCategory::where('id',$index)->update([
                 'ordering'=>$new_position
             ]);
-            Session::flash('success','Parent categories ordering has been updated successfully.');
+            $this->dispatch('postDeleted', ['message' => 'Parent categories ordering has been updated successfully.', 'status' => 'success']);
+
         }
     }
 
@@ -111,7 +112,7 @@ class Categories extends Component
             Category::where('id',$index)->update([
                 'ordering'=>$new_position
             ]);
-            Session::flash('success','Categories ordering has been updated successfully.');
+            $this->dispatch('postDeleted', ['message' => 'Categories ordering has been updated successfully', 'status' => 'success']);
         }
     }
 
@@ -133,9 +134,9 @@ class Categories extends Component
         $delete = $pcategory->delete();
 
         if($delete){
-            Session::flash('success','Parent category has been deleted successfully.');
+            $this->dispatch('postDeleted', ['message' => 'Parent category has been deleted successfully.', 'status' => 'success']);
         }else{
-            Session::flash('fail','Something went wrong');
+            $this->dispatch('postDeleted', ['message' => 'Something went wrong', 'status' => 'error']);
         }
     }
 
@@ -162,11 +163,10 @@ class Categories extends Component
 
         if($saved){
             $this->hideCategoryModalForm();
-            Session::flash('success','New category has been successfully.');
+            $this->dispatch('postDeleted', ['message' => 'New category has been successfully.', 'status' => 'success']);
         }else{
-            Session::flash('fail','Something went wrong');
+            $this->dispatch('postDeleted', ['message' => 'Something went wrong', 'status' => 'error']);
         }
-
     }
 
 
@@ -193,11 +193,12 @@ class Categories extends Component
         $category->parent = $this->parent;
         $category->slug = null;
         $updated = $category->save();
+
         if($updated){
             $this->hideCategoryModalForm();
-            Session::flash('success','Category has been updated successfully.');
+            $this->dispatch('postDeleted', ['message' => 'Category has been updated successfully.', 'status' => 'success']);
         }else{
-            Session::flash('fail','Something went wrong');
+            $this->dispatch('postDeleted', ['message' => 'Something went wrong', 'status' => 'error']);
         }
     }
 
@@ -205,13 +206,17 @@ class Categories extends Component
         $category = Category::findOrFail($id);
 
         //Check related Post
-
-        //Dalete Category
-        $delete = $category->delete();
-        if($delete){
-            Session::flash('success','Category has been deleted successfully.');
+        if($category->posts->count() > 0){
+            $count = $category->posts->count();
+            $this->dispatch('postDeleted', ['message' => 'This category has ('.$count.') related post(s). Can not be deleted', 'status' => 'error']);
         }else{
-            Session::flash('fail','Something went wrong');
+            //Dalete Category
+            $delete = $category->delete();
+            if($delete){
+                $this->dispatch('postDeleted', ['message' => 'Category has been deleted successfully.', 'status' => 'success']);
+            }else{
+                $this->dispatch('postDeleted', ['message' => 'Something went wrong', 'status' => 'error']);
+            }
         }
     }
 

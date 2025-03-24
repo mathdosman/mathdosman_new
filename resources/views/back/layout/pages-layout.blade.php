@@ -11,19 +11,19 @@
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href="/back/vendors/images/apple-touch-icon.png"
+			href="/images/site/{{ settings()->site_favicon }}"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="/back/vendors/images/favicon-32x32.png"
+			href="/images/site/{{ settings()->site_favicon }}"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href="/back/vendors/images/favicon-16x16.png"
+			href="/images/site/{{ settings()->site_favicon }}"
 		/>
 
 		<!-- Mobile Specific Metas -->
@@ -52,6 +52,30 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.css">
+        <style>
+            .toast-center {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            .toast-top-center {
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                    .brand-logo {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .brand-logo img {
+                    width: 64px;
+                    height: 64px;
+                    object-fit: contain;
+                }
+        </style>
         @kropifyStyles
         @stack('stylesheets')
 
@@ -396,19 +420,21 @@
 		</div>
 
 		<div class="left-side-bar">
-			<div class="brand-logo">
-				<a href="/">
-					<img src="/back/vendors/images/deskapp-logo.svg" alt="" class="dark-logo" />
-					<img
-						src="/back/vendors/images/deskapp-logo-white.svg"
-						alt=""
-						class="light-logo"
-					/>
-				</a>
-				<div class="close-sidebar" data-toggle="left-sidebar-close">
-					<i class="ion-close-round"></i>
-				</div>
-			</div>
+            <div class="brand-logo">
+
+                <a href="/">
+                    @if (settings()->site_logo)
+                        <img src="/images/site/{{ settings()->site_logo }}" alt="Site Logo" class="dark-logo"  />
+                        <img src="/images/site/{{ settings()->site_logo }}" alt="Site Logo" class="light-logo" />
+                    @else
+                        <img src="/images/site/default.png" alt="Default Logo" class="dark-logo" />
+                        <img src="/images/site/default.png" alt="Default Logo" class="light-logo" />
+                    @endif
+                </a>
+                <div class="close-sidebar" data-toggle="left-sidebar-close">
+                    <i class="ion-close-round"></i>
+                </div>
+            </div>
 			<div class="menu-block customscroll">
 				<div class="sidebar-menu">
 					<ul id="accordion-menu">
@@ -428,7 +454,7 @@
                         @endif
 
 						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle {{ Route::is('adminadd_post') ? 'active' : '' }} || {{ Route::is('adminposts') ? 'active' : '' }}">
+							<a href="javascript:;" class="dropdown-toggle {{ Route::is('adminadd_post') ? 'active' : '' }} || {{ Route::is('adminposts') ? 'active' : '' }} || {{ Route::is('adminedit_post') ? 'active' : '' }}">
 								<span class="micon fa fa-newspaper-o"></span
 								><span class="mtext"> Posts </span>
 							</a>

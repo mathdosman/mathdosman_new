@@ -625,6 +625,68 @@
       'table' => 'failed_jobs',
     ),
   ),
+  'seotools' => 
+  array (
+    'inertia' => false,
+    'meta' => 
+    array (
+      'defaults' => 
+      array (
+        'title' => 'It\'s Over 9000!',
+        'titleBefore' => false,
+        'description' => 'For those who helped create the Genki Dama',
+        'separator' => ' - ',
+        'keywords' => 
+        array (
+        ),
+        'canonical' => false,
+        'robots' => false,
+      ),
+      'webmaster_tags' => 
+      array (
+        'google' => NULL,
+        'bing' => NULL,
+        'alexa' => NULL,
+        'pinterest' => NULL,
+        'yandex' => NULL,
+        'norton' => NULL,
+      ),
+      'add_notranslate_class' => false,
+    ),
+    'opengraph' => 
+    array (
+      'defaults' => 
+      array (
+        'title' => 'Over 9000 Thousand!',
+        'description' => 'For those who helped create the Genki Dama',
+        'url' => false,
+        'type' => false,
+        'site_name' => false,
+        'images' => 
+        array (
+        ),
+      ),
+    ),
+    'twitter' => 
+    array (
+      'defaults' => 
+      array (
+      ),
+    ),
+    'json-ld' => 
+    array (
+      'defaults' => 
+      array (
+        'title' => 'Over 9000 Thousand!',
+        'description' => 'For those who helped create the Genki Dama',
+        'url' => false,
+        'type' => 'WebPage',
+        'images' => 
+        array (
+        ),
+      ),
+    ),
+  ),
   'services' => 
   array (
     'postmark' => 

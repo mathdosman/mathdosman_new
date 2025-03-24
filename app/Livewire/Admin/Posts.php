@@ -7,6 +7,9 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\ParentCategory;
 use App\Models\Category;
+use Illuminate\Support\Facades\File;
+
+use Illuminate\Support\Facades\Storage;
 
 class Posts extends Component
 {
@@ -31,6 +34,10 @@ class Posts extends Component
         'sortBy' =>['except'=>''],
     ];
 
+    protected $listeners = [
+        'deletePostAction'
+    ];
+
     public function updatedSearch(){
         $this->resetPage();
     }
@@ -50,6 +57,7 @@ class Posts extends Component
 
 
     public function mount(){
+        $this ->author = auth()->user()->type == "superAdmin" ? auth()->user()->id : '';
         $this->post_visibility = $this->visibility == 'public' ? 1 : 0 ;
         //prepare
         $categories_html = '';
@@ -78,6 +86,42 @@ class Posts extends Component
         $this->categories_html = $categories_html;
 
     }
+
+    public function deletePost($id){
+        $this->dispatch('deletePost',['id'=>$id]);
+    }
+
+    public function deletePostAction($id){
+    $post = Post::findOrFail($id);
+    $path = "images/posts/";
+    $resized_path = $path . 'resized/';
+    $old_featured_image = $post->featured_image;
+
+    // Delete featured image
+    if ($old_featured_image != "" && File::exists(public_path($path . $old_featured_image))) {
+        File::delete(public_path($path . $old_featured_image));
+
+        // Delete Resized Image
+        if (File::exists(public_path($resized_path . 'resized_' . $old_featured_image))) {
+        File::delete(public_path($resized_path . 'resized_' . $old_featured_image));
+        }
+
+        // Delete thumbnail
+        if (File::exists(public_path($resized_path . 'thumb_' . $old_featured_image))) {
+        File::delete(public_path($resized_path . 'thumb_' . $old_featured_image));
+        }
+    }
+
+    $delete = $post->delete();
+
+    if ($delete) {
+        $this->dispatch('postDeleted', ['message' => 'Post has been deleted successfully', 'status' => 'success']);
+        } else {
+        $this->dispatch('postDeleted', ['message' => 'Failed to delete post', 'status' => 'error']);
+        }
+
+    }
+
 
     public function render()
     {

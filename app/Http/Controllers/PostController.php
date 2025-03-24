@@ -83,7 +83,7 @@ class PostController extends Controller
                 try {
                     // Thumbnail aspect ratio 1
                     Image::make($path . $new_filename)
-                        ->fit(250, 250)
+                        ->fit(300, 200)
                         ->save($resized_path . 'thumb_' . $new_filename);
 
                     // Resized aspect ratio 1.6
@@ -207,7 +207,7 @@ class PostController extends Controller
 
                         // Image thumbnail (Aspect ratio: 1)
                         Image::make($path . $new_filename)
-                            ->fit(250, 250)
+                            ->fit(300, 200)
                             ->save($resized_path . 'thumb_' . $new_filename);
 
                         // Resized image (Aspect ratio: 1.6)

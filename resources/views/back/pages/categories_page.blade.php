@@ -8,6 +8,14 @@
 
 @push('scripts')
     <script>
+    $(document).ready(function() {
+
+        // Konfigurasi Toastr
+        toastr.options = {
+            "timeOut": "3000",
+            "positionClass": "toast-top-center"
+        };
+
         window.addEventListener('showParentCategoryModalForm',function(){
             $('#pcategory_modal').modal('show');
         });
@@ -91,5 +99,22 @@
                 }
             });
         });
+
+        window.addEventListener('postDeleted', function(event) {
+            var message = event.detail[0].message;
+            var status = event.detail[0].status;
+
+            if (status === 'success') {
+                toastr.success(message);
+            } else if (status === 'error') {
+                toastr.error(message);
+            } else {
+              toastr.info(message);
+            }
+
+        });
+
+    });
+
     </script>
 @endpush
