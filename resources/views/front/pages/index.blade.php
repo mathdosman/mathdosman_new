@@ -105,12 +105,12 @@
                                 <a href="{{route('all_posts')}}" class="btn btn-outline-primary btn-lg btn-block">View More</a>
                             </div>
                         </div>
-						
+
 					</div>
 
 				</div>
 
                 <div class="col-md-4">
-					@include('front.layout.sidebar-front')
+					@include('front.layout.popular_post_side')
 				</div>
 @endsection

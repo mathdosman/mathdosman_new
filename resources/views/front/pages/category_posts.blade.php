@@ -10,12 +10,12 @@
                         <div class="row mb-15">
                             <div class="col-md-12">
                                 <div class="section-title">
-                                    <h3 class="title">{{ $pageTitle }}</h3>
+                                    <h3 class="title">{{ $pageTitle }} &rArr; ({{ $posts->count() }})</h3>
                                 </div>
                             </div>
                         </div>
                         @if($posts->count() > 0)
-                        
+
 						<div class="row">
                             @foreach ($posts as $post)
 							<div class="col-md-4 mb-3">
@@ -59,8 +59,8 @@
                             {{ $posts->appends(request()->input())->links('custom_pagination') }}
                         </div>
 		{{-- end row --}}
-					</div> 
-                    
+					</div>
+
 
                     @else
                     <div class="row">

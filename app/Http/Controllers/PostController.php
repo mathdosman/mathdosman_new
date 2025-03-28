@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
+use App\Models\NewsletterSubscriber;
+use App\Jobs\SendNewsletterJob;
+
 class PostController extends Controller
 {
     public function addPost() {
@@ -113,6 +116,23 @@ class PostController extends Controller
                     $post->save();
 
                     DB::commit();
+                    /**
+                     * Send Email Berita
+                     */
+                    if ($request->visibility == 1) {
+                        // Get post details
+                        $latestPost = Post::latest()->first();
+
+                        if (NewsletterSubscriber::count() > 0) {
+                          $subscribers = NewsletterSubscriber::pluck('email');
+                          foreach ($subscribers as $subscriber_email) {
+                            SendNewsletterJob::dispatch($subscriber_email, $latestPost);
+                          }
+
+                          $latestPost->is_notified = true;
+                          $latestPost->save();
+                        }
+                      }
                     return response()->json([
                         'status' => 1,
                         'message' => 'Postingan baru berhasil dibuat.',
@@ -234,6 +254,8 @@ class PostController extends Controller
                     }
                 }
 
+                $sendEmailToSubscribers = ($post->visibility == 0 && $post->is_notified == 0 && $request->visibility == 1 ) ? true : false;
+
                 // UPDATE POST IN DATABASE
                 $post->author_id = auth()->id();
                 $post->category = $request->category;
@@ -248,6 +270,20 @@ class PostController extends Controller
                 $saved = $post->save();
 
                 if ($saved) {
+                    if ($sendEmailToSubscribers) {
+                        // Get post details
+                        $currentPost = Post::findOrFail($request->post_id);
+
+                        if (NewsletterSubscriber::count() > 0) {
+                          $subscribers = NewsletterSubscriber::pluck('email');
+                          foreach ($subscribers as $subscriber_email) {
+                            SendNewsletterJob::dispatch($subscriber_email, $currentPost);
+                          }
+
+                          $currentPost->is_notified = true;
+                          $currentPost->save();
+                        }
+                      }
                     return response()->json(['status' => 1, 'message' => 'Blog post has been successfully updated.']);
                 } else {
                     return response()->json(['status' => 0, 'message' => 'Something went wrong while updating a post.']);

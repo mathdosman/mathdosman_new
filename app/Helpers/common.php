@@ -30,8 +30,8 @@ if(!function_exists('navigations')){
             foreach ($pcategories as $item) {
                 $navigations_html .= '
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#!" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' . $item->name . ' <i class="ti-angle-down ml-1"></i></a>
-                        <div class="dropdown-menu">
+                        <a class="dropdown-toggle nav-link" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' . $item->name . '</a>
+                        <div class="dropdown-menu rounded-0 border-0" aria-labelledby="dropdown01">
                 ';
 
                 foreach ($item->children as $category) {
@@ -98,6 +98,25 @@ if (!function_exists('latest_posts')) {
             ->limit($limit)
             ->where('visibility', 1)
             ->orderBy('created_at', 'desc')
+            ->get();
+    }
+}
+
+if (!function_exists('popularPosts')) {
+    function popularPosts($skip = 0, $limit = 5) {
+        return Post::skip($skip)
+            ->limit($limit)
+            ->where('visibility', 1)
+            ->orderBy('views', 'desc')
+            ->get();
+    }
+}
+if (!function_exists('popularPostsFooter')) {
+    function popularPostsFooter($skip = 0, $limit = 3) {
+        return Post::skip($skip)
+            ->limit($limit)
+            ->where('visibility', 1)
+            ->orderBy('views', 'desc')
             ->get();
     }
 }

@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="section-title">
-                <h4 class="title">Latest Posts</h4>
+                <h4 class="title">Popular Post</h4>
             </div>
             <ul class="last-posts">
-                @foreach (sidebar_latest_posts() as $item)
+                @foreach (popularPosts() as $item)
                 <li class="last-posts-item">
                     <a href="{{ route('read_post',$item->slug) }}" class="post-img">
                         <img src="/images/posts/resized/thumb_{{ $item->featured_image }}" alt="">
@@ -30,11 +30,7 @@
 
     <x-sidebar-categories></x-sidebar-categories>
     <x-sidebar-tags></x-sidebar-tags>
-
     @livewire('newsletter-form')
-
-
-
 
 </div>
 <!-- end sidebar -->

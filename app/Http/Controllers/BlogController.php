@@ -10,6 +10,7 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Helpers\CMail;
 
 class BlogController extends Controller
 {
@@ -80,11 +81,11 @@ public function authorPosts(Request $request, $username=null){
             ->where('visibility', 1)
             ->orderBy('created_at', 'asc')
             ->paginate(6);
-    
+
     $title = $author->name . ' - Blog Posts';
-    
+
     $description = 'Explore the latest posts by ' . $author->name . ' on various topics';
-    
+
     /** Set SEO Meta Tags */
     SEOTools::setTitle($title, false);
     SEOTools::setDescription($description);
@@ -95,16 +96,16 @@ public function authorPosts(Request $request, $username=null){
         'first_name' => $author->name,
         'username' => $author->username
     ]);
-    
+
     $data = [
         'pageTitle' => $author->name,
         'author' => $author,
         'posts'=>$posts
     ];
-    
+
 
     return view('front.pages.author_posts', $data);
-    
+
     // End Method
 }
 
@@ -129,7 +130,7 @@ public function tagPosts(Request $request, $tag = null)
                 'tag' => $tag,
                 'posts'=>$posts
             ];
-            
+
 
             return view('front.pages.tag_posts', $data);
         }
@@ -183,7 +184,7 @@ public function tagPosts(Request $request, $tag = null)
                     // Fetch single post by slug
                     $post = Post::where('slug', $slug)->firstOrFail();
                     $tags = !empty($post->tags) ? explode(',', $post->tags) : [];
-            
+
                     // Ambil data author melalui relasi
                     $author = $post->author; // Menggunakan relasi 'author' dari model Post
                     $authorPicture = basename($author->picture); // Ambil kolom 'picture' dari tabel users
@@ -208,6 +209,7 @@ public function tagPosts(Request $request, $tag = null)
                     // Set SEO Meta Tags
                     $title = $post->title;
                     $description = ($post->meta_description != '') ? $post->meta_description : words($post->content, 35);
+                    $post->increment('views');
 
                     SEOTools::setTitle($title, false);
                     SEOTools::setDescription($description);
@@ -215,7 +217,6 @@ public function tagPosts(Request $request, $tag = null)
                     SEOTools::opengraph()->addProperty('type', 'article');
                     SEOTools::opengraph()->addImage(asset('images/posts/' . $post->featured_image));
                     SEOTools::twitter()->setImage(asset('images/posts/' . $post->featured_image));
-
                     $data = [
                         'pageTitle' => $title,
                         'post' => $post,
@@ -248,5 +249,56 @@ public function tagPosts(Request $request, $tag = null)
                         return view('front.pages.all_posts', $data);
                     }
                     // End Method
+
+                    public function contactPage(Request $request){
+                        $title = 'Contact Us';
+                        $description = 'Get in touch with us. Send us a message, ask a question, or give us feedback.';
+
+                        SEOTools::setTitle($title, false);
+                        SEOTools::setDescription($description);
+
+                        $data = [
+                            'pageTitle' => $title
+                        ];
+
+                        return view('front.pages.contact', $data);
+                    }
+
+
+                    public function sendEmail(Request $request){
+                        $request->validate([
+                            'name' => 'required',
+                            'email' => 'required|email',
+                            'subject' =>'required',
+                            'message' => 'required'
+                        ]);
+
+                        $siteInfo = settings();
+
+                        $data =[
+                            'name' => $request->input('name'),
+                            'email' => $request->input('email'),
+                            'subject' => $request->input('subject'),
+                            'message' => $request->input('message')
+                        ];
+                        $mail_body = view('email-templates.contact-message-template',$data);
+
+                        $mail_config =[
+                            'from_address' => $request->email,
+                            'from_name' => $request->name,
+                            'recipient_address' => $siteInfo->site_email,
+                            'recipient_name' => $siteInfo->site_title,
+                            'subject' => $request->subject,
+                            'body' => $mail_body
+                        ];
+
+                        if(CMail::send($mail_config)){
+                            return redirect()->back()->with('success', 'Your message has been sent successfully. We will get back to you shortly.');
+                        }else{
+                            return redirect()->back()->with('error', 'Failed to send message. Please try again later.');
+                        }
+                    }
+
+
 
 }

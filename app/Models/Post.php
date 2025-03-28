@@ -15,11 +15,13 @@ class Post extends Model
         'title',
         'slug',
         'content',
+        'views',
         'featured_image',
         'tags',
         'meta_keywords',
         'meta_description',
-        'visibility'
+        'visibility',
+        'is_notified'
     ];
 
     public function sluggable(): array
