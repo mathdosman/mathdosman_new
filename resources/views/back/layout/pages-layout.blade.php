@@ -8,23 +8,23 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<!-- Site favicon -->
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/images/site/{{ settings()->site_favicon }}"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/images/site/{{ settings()->site_favicon }}"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/images/site/{{ settings()->site_favicon }}"
-		/>
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/site/{{ settings()->site_favicon ?? 'default.png' }}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/site/{{ settings()->site_favicon ?? 'default.png' }}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/site/{{ settings()->site_favicon ?? 'default.png' }}"
+        />
 
 		<!-- Mobile Specific Metas -->
 		<meta
@@ -423,13 +423,8 @@
             <div class="brand-logo">
 
                 <a href="/">
-                    @if (settings()->site_logo)
-                        <img src="/images/site/{{ settings()->site_logo }}" alt="Site Logo" class="dark-logo"  />
-                        <img src="/images/site/{{ settings()->site_logo }}" alt="Site Logo" class="light-logo" />
-                    @else
-                        <img src="/images/site/default.png" alt="Default Logo" class="dark-logo" />
-                        <img src="/images/site/default.png" alt="Default Logo" class="light-logo" />
-                    @endif
+                    <img src="/images/site/{{ settings()->site_logo ?? 'default.png' }}" alt="Site Logo" class="dark-logo" />
+                    <img src="/images/site/{{ settings()->site_logo ?? 'default.png' }}" alt="Site Logo" class="light-logo" />
                 </a>
                 <div class="close-sidebar" data-toggle="left-sidebar-close">
                     <i class="ion-close-round"></i>

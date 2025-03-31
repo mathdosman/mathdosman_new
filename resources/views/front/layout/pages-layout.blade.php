@@ -6,12 +6,14 @@
 	<title>Blog List</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     @yield('meta_tags')
-	<link rel="icon" href="/images/site/{{ settings()->site_favicon }}">
-	<link rel="stylesheet" href="/front/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-	<link rel="stylesheet" href="/front/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/front/css/fonts.css">
-	<link rel="stylesheet" href="/front/css/styles.css">
-    <link rel="stylesheet" href="/themify-icons/themify-icons.css">
+
+    <link rel="icon" href="/images/site/{{ settings()->site_favicon ?? 'default.png' }}">
+
+	<link rel="stylesheet" href="{{ asset('/front/node_modules/@fortawesome/fontawesome-free/css/all.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('/front/node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('/front/css/fonts.css') }}">
+	<link rel="stylesheet" href="{{ asset('/front/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('/themify-icons/themify-icons.css') }}">
 
 	<style type="text/css">
 		body{
@@ -34,7 +36,7 @@
 					<nav class="navbar navbar-dark navbar-expand-md">
 						<a href="/" class="navbar-brand">
 							<a href="/" class="navbar-brand">
-                                <img src="/images/site/{{ isset(settings()->site_logo) ? settings()->site_logo : '' }}" alt="Logo" class="rounded">
+                                <img src="/images/site/{{ isset(settings()->site_logo) ? settings()->site_logo : '' }}" alt="Logo" class="rounded" width="40">
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="true" aria-label="Toggle navigation">
 				          <span class="navbar-toggler-icon"></span>
@@ -116,7 +118,7 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <a href="/" class="footer-brand">
-                                <img src="/images/site/{{ isset(settings()->site_logo) ? settings()->site_logo : '' }}" alt="Logo" class="rounded">
+                                <img src="/images/site/{{ isset(settings()->site_logo) ? settings()->site_logo : '' }}" width="128" alt="Logo" class="rounded">
                             </a>
                         </li>
                         <li class="list-group-item">
@@ -208,10 +210,13 @@
         </div>
     </footer>
 
-	<script src="/front/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="/front/node_modules/popper.js/dist/umd/popper.min.js"></script>
-	<script src="/front/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="/front/js/app.js"></script>
+    <script type='text/x-mathjax-config'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script src="{{ asset('/front/node_modules/jquery/dist/jquery.min.js') }}"></script>
+	<script src="{{ asset('/front/node_modules/popper.js/dist/umd/popper.min.js') }}"></script>
+	<script src="{{ asset('/front/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('/front/js/app.js') }}"></script>
 
 </body>
 </html>
